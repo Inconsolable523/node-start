@@ -31,3 +31,11 @@
 ![](./src/img/graphql2.png)
 ### 记录的所有提交数据
 ![](./src/img/graphql3.png)
+
+## 运行
+
+step1.`yarn install` 安装所有依赖包
+
+step2.`yarn start`  运行
+
+&&`yarn build`  打包
