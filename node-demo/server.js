@@ -1,4 +1,5 @@
 var http = require('http');
+var url=require('url');
 // createServer是http模块的提供的函数，这个函数会返回一个对象，
 // listen就是这个对象的一个方法指定监听的端口号
 
@@ -6,7 +7,8 @@ var http = require('http');
 
 function start() {
     function onRequest(request, response) {
-        console.log("request received")
+        var pathname=url.parse(request.url).pathname;
+        console.log("request for "+pathname+" has received");
         response.writeHead(200, { "Content-Type": "text/plain" });
         response.write("Hello World");
         response.end();
