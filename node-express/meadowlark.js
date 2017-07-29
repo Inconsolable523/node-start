@@ -1,6 +1,7 @@
 var express=require('express');
 var app=express();
 var fortune=require('./lib/fortune');
+var weatherData=require('./lib/weatherData');
 
 // 随机渲染幸运饼干视图
 // 已经换成模块化形式
@@ -24,6 +25,11 @@ app.use(express.static(__dirname+'/public'));
 // 检测查询字符串test=1
 app.use(function(req,res,next){
 	res.locals.showTests=app.get('env')!=='production'&&req.query.test==='1';
+	next();
+});
+app.use(function(req,res,next){
+	if(!res.locals.partials) res.locals.partials={};
+	res.locals.partials.weather=weatherData.getWeatherData();
 	next();
 });
 
