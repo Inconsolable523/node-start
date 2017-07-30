@@ -2,14 +2,18 @@
 <html>
 <head>
 	<title>Meadowlark Travel</title>
+	{{{_sections.head}}}
+
+	{{!-- 测试 --}}
 	{{#if showTests}}
 	<link rel="stylesheet" type="text/css" href="/vendor/mocha.css">
 	{{/if}}
-	<script type="text/javascript" src="//code.jquery.com/jquery-2.0.2.min.js"></script>
 </head>
 <body>
 <header><img src="/img/logo.png" alt="Meadowlark Travel Logo"></header>
 {{{body}}}
+
+{{!-- 下面是用来测试的 --}}
 {{#if showTests}}
 <div id="mocha"></div>
 <script type="text/javascript" src="/vendor/mocha.js"></script>
@@ -25,5 +29,9 @@ var assert=chai.assert;
 <script type="text/javascript">mocha.run()</script>
 {{/if}}
 {{/if}}
+
+{{!-- 添加段落 --}}
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+{{{_sections.jquery}}}
 </body>
 </html>

@@ -1,0 +1,16 @@
+{{!-- 在布局的不同位置添加视图 --}}
+
+{{#section 'head'}}
+<meta charset="utf-8" name="robots" content="noindex">
+{{/section}}
+
+<h1>Test Page </h1>
+<p>We're testing some jQuery stuff.</p>
+
+{{#section 'jquery'}}
+<script type="text/javascript">
+	$('document').ready(function(){
+		$('h1').html('jQuery Works');
+});
+</script>
+{{/section}}

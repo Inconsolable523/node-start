@@ -13,8 +13,18 @@ var weatherData=require('./lib/weatherData');
 // ];
 
 // 设置handlebars视图引擎
+// 添加辅助方法，可以将视图添加到不同部分的布局里面
 var handlebars = require('express3-handlebars')
-.create({defaultLayout:'main'});
+.create({
+	defaultLayout:'main',
+	helpers:{
+		section:function(name,options){
+			if(!this._sections) this._sections={};
+			this._sections[name]=options.fn(this);
+			return null;
+		}
+	}
+});
 app.engine('handlebars',handlebars.engine);
 app.set('view engine','handlebars');
 
@@ -45,6 +55,11 @@ app.get('/about',function(req,res){
 	// var randomFortune=fortunes[Math.floor(Math.random()*fortunes.length)];
 	res.render('about',{fortune:fortune.getFortune(),
 						pageTestScript:'/qa/tests-about.js'});
+})
+
+// 测试section
+app.get('/jquerytest',function(req,res){
+	res.render('jquerytest');
 })
 
 app.get('/tours/hood-river',function(req,res){
