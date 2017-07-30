@@ -62,6 +62,19 @@ app.get('/jquerytest',function(req,res){
 	res.render('jquerytest');
 })
 
+// 动态渲染
+app.get('/dynamic',function(req,res){
+	res.render('dynamic');
+})
+
+app.get('/data/nursery-rhyme',function(req,res){
+	res.json({
+		animal:'ssss',
+		bodyPart:'dfvdf',
+		adjective:'vdsv',
+		noun:'heck'
+	})
+})
 app.get('/tours/hood-river',function(req,res){
 res.render('tours/hood-river');
 })
